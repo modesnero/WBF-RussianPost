@@ -1,5 +1,5 @@
 {
   "port": 80,
-  "mongoUrl": "",
-  "jwtSecret": ""
+  "mongoUrl": "mongodb+srv://modesnero:edEWj2FOd19Mx1gR@main.sbqd4.mongodb.net/app?retryWrites=true&w=majority",
+  "password": "edEWj2FOd19Mx1gR"
 }

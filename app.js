@@ -3,7 +3,7 @@ const config = require('config')
 const mongoose = require('mongoose')
 const path = require('path')
 
-const port = config.get('port') || 5000
+const port = config.get('port')
 const app = express()
 
 app.use(express.json())
