@@ -9,16 +9,13 @@ export default function TableControls (props) {
       <Row className='justify-content-between'>
         <Col md={6} sm={12}>
           <Form>
-            <Form.Group>
-              <Form.Control as='select'>
-                <option>Все данные</option>
-                <option>Сегмент 1</option>
-                <option>Сегмент 2</option>
-                <option>Сегмент 3</option>
-                <option>Сегмент 4</option>
-                <option>Сегмент 5</option>
-              </Form.Control>
-            </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Скрытые юридические лица" />
+            <Form.Check type="checkbox" label="Ночные клиенты" />
+            <Form.Check type="checkbox" label="Постоянные клиенты" />
+            <Form.Check type="checkbox" label="Клиенты, отправляющие далеко" />
+            <Form.Check type="checkbox" label="Клиенты, отправляющие тяжелые посылки" />
+          </Form.Group>
           </Form>
         </Col>
         <Col md={6} sm={12}>
@@ -32,6 +29,13 @@ export default function TableControls (props) {
               <Button block className='mb-3' onClick={nextPage}>
                 Далее
               </Button>
+            </Col>
+          </Row>
+          <Row>
+            <Col col={12}>
+            <Button block className='mb-3'>
+              Сегментировать 1000 записей
+            </Button>
             </Col>
           </Row>
         </Col>
