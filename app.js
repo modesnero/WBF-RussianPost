@@ -10,7 +10,6 @@ app.use(express.json())
 
 app.use('/api/data', require('./routes/data.routes'))
 
-// Send static files & index.html in Production mode
 if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, 'client', 'build')))
   app.get('*', (_req, res) =>

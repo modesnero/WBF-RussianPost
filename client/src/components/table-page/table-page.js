@@ -2,9 +2,8 @@ import React from 'react'
 
 export default function TablePage ({ data }) {
   const listItems = data.map(item => {
-    console.log(item)
     return (
-      <tr key={item.hid}>
+      <tr key={item._id}>
         <td>{item.hid.$numberInt || item.hid}</td>
         <td>{item['дата оформления']}</td>
         <td>{item['индекс отправителя'] || '-'}</td>
