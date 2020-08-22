@@ -2,20 +2,36 @@ import React from 'react'
 import { Col, Row, Form, Button } from 'react-bootstrap'
 
 export default function TableControls (props) {
-  const { listFrom, listTo, nextPage, prevPage } = props
+  const {
+    listFrom,
+    listTo,
+    nextPage,
+    prevPage,
+    dataCount,
+    dataProc,
+    onSegmentChange
+  } = props
 
   return (
     <>
       <Row className='justify-content-between'>
         <Col md={6} sm={12}>
           <Form>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Скрытые юридические лица" />
-            <Form.Check type="checkbox" label="Ночные клиенты" />
-            <Form.Check type="checkbox" label="Постоянные клиенты" />
-            <Form.Check type="checkbox" label="Клиенты, отправляющие далеко" />
-            <Form.Check type="checkbox" label="Клиенты, отправляющие тяжелые посылки" />
-          </Form.Group>
+            <Form.Group>
+              <Form.Check onChange={() => onSegmentChange(0)} type='checkbox' label='Скрытые юридические лица' />
+              <Form.Check onChange={() => onSegmentChange(1)} type='checkbox' label='Ночные клиенты' />
+              <Form.Check onChange={() => onSegmentChange(2)} type='checkbox' label='Постоянные клиенты' />
+              <Form.Check
+                type='checkbox'
+                label='Клиенты, отправляющие далеко'
+                onChange={() => onSegmentChange(3)}
+              />
+              <Form.Check
+                type='checkbox'
+                label='Клиенты, отправляющие тяжелые посылки'
+                onChange={() => onSegmentChange(4)}
+              />
+            </Form.Group>
           </Form>
         </Col>
         <Col md={6} sm={12}>
@@ -33,9 +49,9 @@ export default function TableControls (props) {
           </Row>
           <Row>
             <Col col={12}>
-            <Button block className='mb-3'>
-              Сегментировать 1000 записей
-            </Button>
+              <Button block className='mb-3'>
+                Сегментировать 1000 записей
+              </Button>
             </Col>
           </Row>
         </Col>
@@ -43,7 +59,8 @@ export default function TableControls (props) {
       <Row>
         <Col>
           <h3 className='mt-3 mb-3 text-center'>
-            Показаны результаты: {listFrom} - {listTo}
+            Показаны результаты: {listFrom} - {listTo}. Всего записей:{' '}
+            {dataCount}({dataProc}% от общего числа записей)
           </h3>
         </Col>
       </Row>
