@@ -40,3 +40,5 @@ Install all dependencies & build client
 ### `npm run deploy:update`
 
 Update app from git & build client
+
+mongoimport --uri "mongodb://root:<PASSWORD>@atlas-host1:27017,atlas-host2:27017,atlas-host3:27017/<DATABASE>?ssl=true&replicaSet=myAtlasRS&authSource=admin" --collection myData --drop --file /somedir/myFileToImport.json

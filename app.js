@@ -1,12 +1,14 @@
 const express = require('express')
 const config = require('config')
-const mongoose = require('mongoose')
+const mongoClient = require('mongodb').MongoClient
 const path = require('path')
 
 const port = config.get('port')
 const app = express()
 
 app.use(express.json())
+
+app.use('/api/data', require('./routes/data.routes'))
 
 // Send static files & index.html in Production mode
 if (process.env.NODE_ENV === 'production') {
@@ -18,10 +20,9 @@ if (process.env.NODE_ENV === 'production') {
 
 async function start () {
   try {
-    await mongoose.connect(config.get('mongoUrl'), {
+    global.db = await mongoClient.connect(config.get('mongoUrl'), {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true
+      useUnifiedTopology: true
     })
     app.listen(port, () => console.log(`App has been started on port: ${port}`))
   } catch (err) {

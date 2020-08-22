@@ -7,12 +7,12 @@ export default function TablePage ({ data }) {
       <tr key={item.hid}>
         <td>{item.hid.$numberInt || item.hid}</td>
         <td>{item['дата оформления']}</td>
-        <td>{item['индекс отправителя'].$numberInt || '-'}</td>
-        <td>{item['индекс получателя'].$numberInt || '-'}</td>
-        <td>{item['вес (гр)'].$numberInt || '-'}</td>
-        <td>{item['стоимость (руб,коп)'].$numberInt || '-'}</td>
-        <td>{item['сумма ОЦ (руб)'].$numberInt || '-'}</td>
-        <td>{item['сумма НП (руб)'].$numberInt || '-'}</td>
+        <td>{item['индекс отправителя'] || '-'}</td>
+        <td>{item['индекс получателя'] || '-'}</td>
+        <td>{item['вес (гр)'] || '-'}</td>
+        <td>{item['стоимость (руб,коп)'] || '-'}</td>
+        <td>{item['сумма ОЦ (руб)'] === 'NULL' ? '-' : item['сумма ОЦ (руб)']}</td>
+        <td>{item['сумма НП (руб)'] === 'NULL' ? '-' : item['сумма ОЦ (руб)']}</td>
         <td>{item['безбланковая отправка'] === 'true' ? 'Да' : 'Нет'}</td>
         <td>{item['бандероль'] === 'true' ? 'Да' : 'Нет'}</td>
         <td>{item['ускоренное'] === 'true' ? 'Да' : 'Нет'}</td>
