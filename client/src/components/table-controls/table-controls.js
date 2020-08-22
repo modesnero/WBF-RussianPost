@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, Col, Row, Table, Form, Button } from 'react-bootstrap'
+import { Col, Row, Form, Button } from 'react-bootstrap'
 
-export default function TableControls () {
+export default function TableControls ({ listFrom, listTo }) {
   return (
     <Row className='justify-content-between'>
       <Col xs={4}>
@@ -21,7 +21,10 @@ export default function TableControls () {
       <Col xs={6}>
         <Row className='justify-content-end'>
           <Button className='mr-3 mb-3'>Предыдущая страница</Button>
-          <Button className='mb-3'>Следующая страница</Button>
+          <Button className='mb-3 mr-3'>Следующая страница</Button>
+          <h3 className='mb-3 mr-3'>
+            Показаны результаты: {listFrom} - {listTo}
+          </h3>
         </Row>
       </Col>
     </Row>
